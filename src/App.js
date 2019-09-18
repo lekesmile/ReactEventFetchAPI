@@ -16,6 +16,7 @@ class App extends Component {
        this.setState({
          isLoader:true,
          items:json,
+        
        })
     })
     .catch(error => console.log(`Error fetch API ${error}`))
@@ -39,14 +40,24 @@ class App extends Component {
             <a className="btn btn-primary btn-lg" onClick={this.handleClick} href="#" role="button">Learn more</a>
       </div>
         <ul>
+        <div className="container">
+          <div className="row justify-content-center">
+          
           {items.map(item => (
-            <li className ="danger" key = {item.id}>
-             Name: {item.name} 
-             Email : {item.email}
-
-            </li>
-          ))}
-        </ul>
+            
+            <div className="col-md-3 card shadow-sm  ">
+              <li key = {item.id}>
+            <h3>Name</h3>  {item.name} 
+             <h4>Email </h4> {item.email} 
+             <h5>Location</h5> {item.address.city} 
+               </li>
+             </div>
+         
+          ))}  
+            
+        </div>
+        </div>
+        </ul> 
       </div>
     );
   }
